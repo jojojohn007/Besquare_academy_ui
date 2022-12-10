@@ -1,0 +1,110 @@
+.bg-home{
+    background-color: #2D4593;
+}
+.text-home{
+    color: #2D4593;
+    padding: 0;
+}
+.btn-home{
+    background-color: #7E85FB;
+    color: white;
+    border: none;
+    padding: 5px 12px;
+    outline: none;
+    font-size: 1rem;
+    width: fit-content;
+    border-radius: 5px;
+}
+.progress-bar{
+     background-color: #7E85FB;
+}
+.red-round{
+    width: 80%;
+    aspect-ratio: 1;
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 50%;
+    outline: 10px solid #F65868;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+
+}
+.progress-indicator{
+    height: 3px;
+    position: relative;
+    overflow: initial;
+}
+.progress-indicator .progressbar-indicator{
+    background: #2D4593 !important;
+}
+.progress-indicator::before{
+    content: "\2713";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 5px;
+    background-color:#2D4593;
+    color: white;
+    position: absolute;
+    border-radius: 50%;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.progress-indicator::after{
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 6px;
+    background-color:white;
+    border: 1px solid rgb(207, 207, 207);
+    position: absolute;
+    border-radius: 50%;
+    left: 66%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.progressbar-indicator::after{
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 6px;
+    background-color:#2D4593;
+    color: white;
+    position: absolute;
+    border-radius: 50%;
+    left: 33%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}
+.progressbar-indicator::before{
+    content: "";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 6px;
+    background-color:#7E85FB;
+    color: white;
+    position: absolute;
+    border-radius: 50%;
+    right:0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.progress-title{
+    font-size: 9px;
+    text-align: right;
+    margin-top: 15px;
+    line-break: anywhere;
+}
+.footer{
+    background-color: #5C616E;
+    color: white;
+}
+.bi{
+    fill: white;
+}

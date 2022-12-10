@@ -1,0 +1,635 @@
+
+
+<script src='jquery.js'></script>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- ======= Header ======= -->
+
+<style>
+   .dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.startcourse {
+  display:none;
+ 
+}
+.showup {
+  position:relative;
+  animation-name:showup;
+  animation-duration:2s;
+}
+@keyframes showup {
+  0% {top:-100px;opacity:.0;};
+  100% {top:100px;opacity:.9;};
+
+}
+.completed .cardbody svg {
+fill:blue;
+}
+.notcomplete .cardbody svg {
+fill:lightgrey;
+}
+
+/* new */
+header {
+  background:#2D4593;
+}
+header .container {
+  justify-content: space-between;
+}
+.content_left {
+    min-width: -webkit-fill-available;
+    padding-left: 23%;
+    padding-top: 20px;
+    align-items: center;
+    max-width: 5px;
+}
+body,.noti{
+  background:white !important;
+}
+.welcomemsg {
+  font-weight:bold;
+}
+.taskmsg{
+  font-size:1rem;
+}
+
+.tasks .progress {
+  width: 130px;
+  height: 130px;
+  background: none;
+  position: relative;
+}
+
+.tasks .progress::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 6px solid #eee;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.tasks .progress>span {
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  z-index: 1;
+}
+
+.tasks .progress .progress-left {
+  left: 0;
+}
+
+.tasks .progress .progress-bar {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border-width: 6px;
+  border-style: solid;
+  position: absolute;
+  top: 0;
+}
+
+.tasks .progress .progress-left .progress-bar {
+  left: 100%;
+  border-top-right-radius: 80px;
+  border-bottom-right-radius: 80px;
+  border-left: 0;
+  -webkit-transform-origin: center left;
+  transform-origin: center left;
+}
+
+.tasks .progress .progress-right {
+  right: 0;
+}
+
+.tasks .progress .progress-right .progress-bar {
+  left: -101%;
+  border-top-left-radius: 80px;
+  border-bottom-left-radius: 80px;
+  border-right: 0;
+  -webkit-transform-origin: center right;
+  transform-origin: center right;
+}
+
+.tasks .progress .progress-value {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+}
+
+
+
+
+
+.taskhead {
+font-weight:bold;
+font-size:24px;
+margin-right:10px;
+}
+
+.text * {
+  margin-bottom:26px;
+  margin-right: 9px;
+  /* width: min-content; */
+}
+.progresstext{
+  /* margin-left:50px; */
+  display:flex;
+  /* width: max-content; */
+  font-size: 16px;
+  flex-direction: column;
+}
+.progresstext *{
+  font-size: 16px;
+ 
+}
+.font-weight-bold {
+  margin-bottom:0px !important;
+  margin-top: 30px;
+    padding: 0px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+
+}
+.taskmsg {
+  margin-bottom:50px;
+}
+.noti {
+  justify-content:end;
+}
+.bg {
+  background:#F1F1F3;
+}
+/* .mininav .active {
+  margin-bottom:10px;
+  border-bottom:5px solid red;
+} */
+.mininav p {
+  cursor: pointer;
+
+}
+
+.mininav .active:after { 
+  content:""; 
+  float:left; 
+  background:#2D4593; 
+  width:100%; 
+  height:3px; 
+  border-radius: 3px;
+}
+.taskhead2 {
+font-weight:bold;
+font-size:18px;
+color:#5C616E;
+}
+.top {
+  display: flex;
+    /* align-items: unset; */
+    justify-content: space-between;
+    /* padding: 32px; */
+    width: 100%;
+    padding-bottom:10px;
+}
+.info2 {
+margin-right:auto !important;
+margin-top:10px;
+margin-bottom:10px;
+color:#5375E2;
+font-weight:bold;
+font-size:12px;
+}
+.card * {
+  margin-bottom:10px !important;
+}
+.card {
+  margin-top:0px !important;
+  min-width:250px !important;
+}
+
+.progressbar * {
+  height:4px !important;
+  width:70%;
+  background:#57C8B6;
+  margin-top: 65px;
+}
+.exercises {
+    position: absolute;
+    display:flex;
+}
+
+.ex {
+    position: relative;
+    position: relative;
+    /* right: 10px; */
+    bottom: 18px;
+}
+svg.exDone {
+    right: 10px;
+    position: relative;
+}
+.set {
+  width:max-content;
+  justify-content: center;
+    align-items: baseline;
+    width: 100p;
+    width: 620px;
+}
+.card-concat-content {
+  min-width: 295px;
+}
+.ex:nth-child(even){
+  margin:0px 15px 0px 15px;
+}
+.btn-tertiary{
+  color:white !important;
+  background:#7E85FB !important;
+  border-radius:6px !important;
+}
+.secondary-btn{
+  border:2px solid #2D4593 !important;
+  color:#2D4593 !important;
+  border-radius:6px !important;
+}
+.secondary-btn a {
+    color: #2D4593;
+    font-weight: 600;
+}
+svg.exUndone {
+    position: relative;
+    background: #f1f1f3;
+    bottom: -7px;
+    margin-bottom: 16px;
+}
+.bg-orange {
+  background:#FF9797 !important;
+}
+.bg-lightgreen {
+  background:#57C8B6 !important;
+}
+
+main {
+    width: 500px;
+}
+h1.welcomemsg {
+    font-size: 36px;
+}
+.d-flex.nessasary {
+    align-items: end;
+}
+.info * {
+    margin-top: 8px;
+}
+.noti {
+  height:42px;
+}
+
+.tasks {
+  padding:15px;
+    border: 1px solid blue;
+    border-radius: 6px;
+    padding: 10px;
+
+}
+.tasks {
+    transition-timing-function: ease-in-out;
+    transition: .4s;
+    box-shadow: 0px 0px 18px #d3d3d382;
+    border: 0px;
+    border: 1px solid #f8ecec;
+    border-top-width: 1px;
+
+}
+
+.d-flex {
+  flex-wrap: nowrap !important;
+}
+header {
+  height: 50px !important;
+}
+h4 {
+  color: white;
+}
+
+</style>
+
+ <!-- Favicons -->
+ <link href="../../assets/img/favicon.png" rel="icon">
+ <link href="../../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+ <!-- Google Fonts -->
+ <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+ <!-- Vendor CSS Files -->
+ <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+ <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+ <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+ <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+ <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+ <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+ <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+ <!-- Template Main CSS File -->
+ <link href="../../assets/css/style.css" rel="stylesheet">
+
+
+ <link rel="stylesheet" href="css/class5.css">
+
+
+
+
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta name='description' >
+ <title>class5</title>
+ <script  src='jquery.js'></script>
+</head>
+<body>
+  <header id="header" class="fixed-top ">
+    <div class="container d-flex align-items-center">
+      <div class="d-flex">
+		<img class=" text-white mx-3 bg-secondary" width="30px" height="30px" src="../../assets/squares.png" alt="logo">
+		<p class="text-white logo"></p>
+      <h4 class="logo  text-white ">Be-Square Academy</h4>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+    </div>
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link  active" href="learnershome.html">Home</a></li>
+          <li class="dropdown"><a href="#"><span>Courses</span> <i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li class="dropdown"> <a href="#"><span>Middle school </span><i class="bi bi-chevron-right"></i> </a>
+                <ul>
+                  <li><a href="#">class 1</a></li>
+                  <li><a href="#">Class 2</a></li>
+                  <li><a href="#">class 3</a></li>
+                  <li><a href="#">Class 4</a></li>
+                  <li><a href="#">class 5</a></li>
+                  <li><a href="#">Class 6</a></li>
+                  <li><a href="#">class 8</a></li>
+                  <li><a href="#">Class 8</a></li>
+                  <li><a href="#">class 9</a></li>
+                  <li><a href="#">Class 10</a></li>
+                </ul>
+              </li>
+
+              <li class="dropdown"><a href="#"><span>Higher secondary</span> <i class="bi bi-chevron-right"></i></a>
+                <ul>
+                  <li><a href="#">Plus 1</a></li>
+                  <li><a href="#">Plus 2</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li><a class="nav-link " href="navbarOptions/status.html">Status</a></li>
+          <li><a class="nav-link" href="navbarOptions/settings.html">Settings
+          </a></li>
+          <li><a class="nav-link   "  href='../../index.html'>Logout</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>     
+       </nav>
+       <!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+  <div class="info d-flex bg-light">
+  
+  </div>
+  <div class="d-flex bg">
+<main class=" d-flex ">
+<div class="content_left bg-white  col-4 ">
+<div class="text">
+  <h1 class="welcomemsg">Welcome back ! </h1>
+  <p class="taskmsg">You have completed 5% of your task this week</p>
+  <div class="infosection d-flex">
+ 
+    <div class="tasks">
+    <h6 class="taskhead">Progress</h6>
+    <div class='d-flex nessasary'>
+      <div class="progress mx-auto" id='wheel1' data-value='80'>
+          <span class="progress-left">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <span class="progress-right">
+                        <span class="progress-bar border-primary"></span>
+          </span>
+          <div class="progress-value w-100 h-100 rounded-circle d-flex align-items-center justify-content-center">
+            <div class="h2 font-weight-bold"> 
+              <p><span class="tier1"> <?php echo $progress.'%';?></span></p>
+          <p>0/18</p>
+          </div>
+          </div>
+        </div>
+
+        <div class="progresstext mx-3">
+  
+  <p><span class="taskhead">2</span>videos watched</p>
+  <p><span class="taskhead">4</span>Exercise completed</p>
+</div>
+</div>
+    </div>
+  </div>
+</div>
+<div class="btnwrap  mx-auto d-flex  ">
+<button class="btn secondary-btn "><a href="navbarOptions/status.html">See full reports</a></button>
+</div>
+</div>
+<div class="content_right bg col-8 p-5 ">
+  <div class="mininav d-flex">
+    <p class="active ">Course</p>
+    <p class=" mx-5">Class</p>
+    <p class="">Practice's</p>
+  </div>
+<div class="minnavload">
+<div class='d-flex align-items-baseline my-2'>
+<svg xmlns="http://www.w3.org/2000/svg" width="12.87" height="16.087" viewBox="0 0 12.87 16.087">
+  <path id="Icon_material-class" data-name="Icon material-class" d="M17.261,3H7.609A1.613,1.613,0,0,0,6,4.609v12.87a1.613,1.613,0,0,0,1.609,1.609h9.652a1.613,1.613,0,0,0,1.609-1.609V4.609A1.613,1.613,0,0,0,17.261,3ZM7.609,4.609h4.022v6.435L9.62,9.837,7.609,11.044Z" transform="translate(-6 -3)" fill="#acaaaa" opacity="0.57"/>
+</svg>
+<p class="tot mx-2">1/<span>18</span></p>
+</div>
+<p class="taskhead2">MULTIPLE DIGIT ADDITION</p>
+<div class="set d-flex  my-2">
+
+
+ <!-- video card -->
+<div class="card  notcomplete video1 video_card  prg  p-4 " call_type='programme1'>
+  <div class="top">
+<svg xmlns="http://www.w3.org/2000/svg" width="51.588" height="44.816" viewBox="0 0 51.588 44.816">
+  <g id="Group_1485" data-name="Group 1485" transform="translate(-770.092 -949.09)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(770.092 949.09)">
+      <g id="object" transform="translate(0 0)">
+       <path id="Path_1837" data-name="Path 1837" d="M50.024,0H1.567A1.571,1.571,0,0,0,0,1.567V43.249a1.571,1.571,0,0,0,1.567,1.567H50.021a1.571,1.571,0,0,0,1.567-1.567V1.567A1.571,1.571,0,0,0,50.024,0ZM12.836,39.756a.948.948,0,0,1-.946.948H4.8a.951.951,0,0,1-.948-.948V32.665a.951.951,0,0,1,.948-.948H11.89a.948.948,0,0,1,.946.948Zm0-14.306a.948.948,0,0,1-.946.948H4.8a.951.951,0,0,1-.948-.948V18.362a.951.951,0,0,1,.948-.948H11.89a.948.948,0,0,1,.946.948Zm0-14.449a.948.948,0,0,1-.946.948H4.8A.951.951,0,0,1,3.851,11V3.923A.951.951,0,0,1,4.8,2.974H11.89a.948.948,0,0,1,.946.948ZM47.084,39.756a.951.951,0,0,1-.948.948H39.047a.951.951,0,0,1-.948-.948V32.665a.951.951,0,0,1,.948-.948h7.1a.951.951,0,0,1,.948.948Zm0-14.306a.951.951,0,0,1-.948.948H39.047a.951.951,0,0,1-.948-.948V18.362a.951.951,0,0,1,.948-.948h7.1a.951.951,0,0,1,.948.948Zm0-14.449a.951.951,0,0,1-.937.948h-7.1A.951.951,0,0,1,38.1,11V3.923a.951.951,0,0,1,.948-.948h7.1a.951.951,0,0,1,.937.948Z" transform="translate(0 0)" fill="#8588ff"/></g></g> </g>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" viewBox="0 0 35.163 35.163">
+<defs><filter id="Icon_map-circle" x="0" y="0" width="35.163" height="35.163" filterUnits="userSpaceOnUse"><feOffset dy="3" input="SourceAlpha"/><feGaussianBlur stdDeviation="3" result="blur"/><feFlood flood-opacity="0.161"/><feComposite operator="in" in2="blur"/><feComposite in="SourceGraphic"/></filter></defs><g id="Group_1489" data-name="Group 1489" transform="translate(-66.656 -496.578)"><g id="Group_1480" data-name="Group 1480" transform="translate(75.657 502.578)"><g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Icon_map-circle)"><path id="Icon_map-circle-2" data-name="Icon map-circle" d="M17.883,9.3A8.581,8.581,0,1,1,9.3.72,8.581,8.581,0,0,1,17.883,9.3Z" transform="translate(8.28 5.28)" fill="#ff9797"/></g><g id="Icon_feather-video" data-name="Icon feather-video" transform="translate(2.644 4.803)"><path id="Path_3612" data-name="Path 3612" d="M27.778,10.5,24,13.2l3.778,2.7Z" transform="translate(-15.904 -9.42)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/><path id="Path_3613" data-name="Path 3613" d="M2.58,7.5H8.517A1.08,1.08,0,0,1,9.6,8.58v5.4a1.08,1.08,0,0,1-1.08,1.08H2.58a1.08,1.08,0,0,1-1.08-1.08V8.58A1.08,1.08,0,0,1,2.58,7.5Z" transform="translate(-1.5 -7.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/> </g>   </g> </g>
+
+</svg>
+</div>
+<p class="taskhead2">Adding multiple digit number's</p>
+<p class="info2">Unwatched</p>
+</div>
+<div class="card-concat-content">
+<h1 class="taskhead2">RELATED PRACTICE'S</h1>
+<div class="bg-orange progressbar w-100">
+  <div class="bg-lightgreen progress" ></div>
+</div>
+
+<div class="exercises">
+  <div class="exercise1 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class="exUndone" width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"></path>
+</svg>
+<p class="taskhead3">Excercise 1</p>
+  </div>
+  <div class="exercise2 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class="exUndone" width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"></path>
+</svg>
+<p class="taskhead3">Excercise 2</p>
+  </div>
+  <div class="exercise3 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class="exUndone" width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"></path>
+</svg>
+<p class="taskhead3">Excercise 3</p>
+  </div>
+  <div class="exercise4 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class="exUndone" width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"></path>
+</svg>
+<p class="taskhead3">Excercise 4</p>
+  </div> 
+</div>
+</div>
+</div>
+<div class="set d-flex  my-4">
+
+
+
+<div class="card p-4 prg" call_type='programme2'>
+  <div class="top">
+<svg xmlns="http://www.w3.org/2000/svg" width="51.588" height="44.816" viewBox="0 0 51.588 44.816">
+  <g id="Group_1485" data-name="Group 1485" transform="translate(-770.092 -949.09)">
+    <g id="Layer_2" data-name="Layer 2" transform="translate(770.092 949.09)">
+      <g id="object" transform="translate(0 0)">
+        <path id="Path_1837" data-name="Path 1837" d="M50.024,0H1.567A1.571,1.571,0,0,0,0,1.567V43.249a1.571,1.571,0,0,0,1.567,1.567H50.021a1.571,1.571,0,0,0,1.567-1.567V1.567A1.571,1.571,0,0,0,50.024,0ZM12.836,39.756a.948.948,0,0,1-.946.948H4.8a.951.951,0,0,1-.948-.948V32.665a.951.951,0,0,1,.948-.948H11.89a.948.948,0,0,1,.946.948Zm0-14.306a.948.948,0,0,1-.946.948H4.8a.951.951,0,0,1-.948-.948V18.362a.951.951,0,0,1,.948-.948H11.89a.948.948,0,0,1,.946.948Zm0-14.449a.948.948,0,0,1-.946.948H4.8A.951.951,0,0,1,3.851,11V3.923A.951.951,0,0,1,4.8,2.974H11.89a.948.948,0,0,1,.946.948ZM47.084,39.756a.951.951,0,0,1-.948.948H39.047a.951.951,0,0,1-.948-.948V32.665a.951.951,0,0,1,.948-.948h7.1a.951.951,0,0,1,.948.948Zm0-14.306a.951.951,0,0,1-.948.948H39.047a.951.951,0,0,1-.948-.948V18.362a.951.951,0,0,1,.948-.948h7.1a.951.951,0,0,1,.948.948Zm0-14.449a.951.951,0,0,1-.937.948h-7.1A.951.951,0,0,1,38.1,11V3.923a.951.951,0,0,1,.948-.948h7.1a.951.951,0,0,1,.937.948Z" transform="translate(0 0)" fill="#8588ff"/>
+      </g>
+    </g>
+  </g>
+</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" viewBox="0 0 35.163 35.163">
+  <defs>
+    <filter id="Icon_map-circle" x="0" y="0" width="35.163" height="35.163" filterUnits="userSpaceOnUse">
+      <feOffset dy="3" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.161"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_1484" data-name="Group 1484" transform="translate(-66.656 -496.578)">
+    <g id="Group_1480" data-name="Group 1480" transform="translate(75.657 502.578)">
+      <g transform="matrix(1, 0, 0, 1, -9, -6)" filter="url(#Icon_map-circle)">
+        <path id="Icon_map-circle-2" data-name="Icon map-circle" d="M17.883,9.3A8.581,8.581,0,1,1,9.3.72,8.581,8.581,0,0,1,17.883,9.3Z" transform="translate(8.28 5.28)" fill="#57c8b6"/>
+      </g>
+      <g id="Icon_feather-video" data-name="Icon feather-video" transform="translate(2.644 4.803)">
+        <path id="Path_3612" data-name="Path 3612" d="M27.778,10.5,24,13.2l3.778,2.7Z" transform="translate(-15.904 -9.42)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+        <path id="Path_3613" data-name="Path 3613" d="M2.58,7.5H8.517A1.08,1.08,0,0,1,9.6,8.58v5.4a1.08,1.08,0,0,1-1.08,1.08H2.58a1.08,1.08,0,0,1-1.08-1.08V8.58A1.08,1.08,0,0,1,2.58,7.5Z" transform="translate(-1.5 -7.5)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/>
+      </g>
+    </g>
+  </g>
+</svg>
+</div>
+<p class="taskhead2">Relate place value to 
+standard algorithm for 
+multi-digit addition</p>
+<p class="info2">watched</p>
+</div>
+<div class="card-concat-content">
+<h1 class="taskhead2">RELATED PRACTICE'S</h1>
+<div class="bg-orange progressbar w-100">
+  <div class="bg-lightgreen progress" ></div>
+</div>
+<div class="exercises">
+  <div class="exercise1 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class='exUndone' width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"/>
+</svg>
+<p class="taskhead3">Excercise 1</p>
+  </div>
+  <div class="exercise2 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class='exUndone' width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"/>
+</svg>
+<p class="taskhead3">Excercise 2</p>
+  </div>
+  <div class="exercise3 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class='exUndone' width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"/>
+</svg>
+<p class="taskhead3">Excercise 3</p>
+  </div>
+  <div class="exercise4 ex">
+  <svg xmlns="http://www.w3.org/2000/svg" class='exUndone' width="17.624" height="17.624" viewBox="0 0 17.624 17.624">
+  <path id="Icon_material-play-circle-outline" data-name="Icon material-play-circle-outline" d="M10.05,15.777l5.287-3.965L10.05,7.847ZM11.812,3a8.812,8.812,0,1,0,8.812,8.812A8.815,8.815,0,0,0,11.812,3Zm0,15.861a7.05,7.05,0,1,1,7.05-7.05A7.059,7.059,0,0,1,11.812,18.861Z" transform="translate(-3 -3)" fill="#ff9797"/>
+</svg>
+<p class="taskhead3">Excercise 4</p>
+  </div> 
+</div>
+</div>
+</div>
+<div class="btn btn-tertiary">Next</div>
+</div>
+</div>
+</main>
+</div>
+     <!-- Vendor JS Files -->
+     <script src="../../assets/vendor/aos/aos.js"></script>
+     <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+     <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+     <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+     <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+     <script src="../../assets/vendor/waypoints/noframework.waypoints.js"></script>
+     <script src="../../assets/vendor/php-email-form/validate.js"></script> 
+   
+     <!-- Template Main JS File -->
+     <script src="../../assets/js/main.js"></script>
+     <script defer>  
+     
+   var pageurl =location.href
+      var getajaxfrom = 'actions/ajax.html'
+      var coursename = 'class5'
+
+      console.log(location.href)
+    </script>
+    <!-- <script src='actions/change_url.js'>
+    </script> -->
+</body>
+</html>
+
